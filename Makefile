@@ -6,13 +6,13 @@
 #    By: mathmart <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/13 08:52:08 by mathmart          #+#    #+#              #
-#    Updated: 2021/11/13 08:53:01 by mathmart         ###   ########.fr        #
+#    Updated: 2021/11/13 08:56:02 by mathmart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 -include Sources.mk
 
-NAME = bsq
+NAME = libftprintf.a
 
 OBJECTS = $(SOURCES:.c=.o)
 
@@ -22,7 +22,7 @@ CFLAGS = -Wall -Wextra -Werror -O3 -g -I Includes
 	gcc $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJECTS)
-	gcc $(CFLAGS) $(OBJECTS) -o $(NAME)
+	ar rcs $(NAME) $(OBJECTS)
 
 all: $(NAME)
 
