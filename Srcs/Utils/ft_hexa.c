@@ -6,7 +6,7 @@
 /*   By: mathmart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 20:08:34 by mathmart          #+#    #+#             */
-/*   Updated: 2021/11/14 20:16:20 by mathmart         ###   ########.fr       */
+/*   Updated: 2021/11/14 20:18:20 by mathmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,8 @@ static void	ft_print_hexa(char *base, char *dest, long nbr)
 	ft_putchar(base[nbr % ft_strlen(base)]);
 }
 
-void	ft_putnbr_base(long nbr, char *dest)
+void	ft_putnbr_base(long nbr, char *dest, char *base)
 {
-	char	*base;
-
-	base = "0123456789ABCDEF";
 	if (nbr < 0)
 	{
 		dest[0] = '-';
@@ -38,7 +35,7 @@ void	ft_p_hexa(unsigned long long addr, int size)
 	char	hex[16];
 	int		i;
 
-	base = "0123456789ABCDEF";
+	base = "0123456789abcdef";
 	i = -1;
 	while (++i < size)
 		hex[i] = '0';
