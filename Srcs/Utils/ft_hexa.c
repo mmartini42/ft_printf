@@ -1,0 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_hexa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mathmart <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/14 20:08:34 by mathmart          #+#    #+#             */
+/*   Updated: 2021/11/14 20:08:43 by mathmart         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../Includes/ft_printf.h"
+
+void	ft_hexa(unsigned long long addr, int size)
+{
+	char	*base;
+	char	hex[16];
+	int		i;
+
+	base = "0123456789ABCDEF";
+	i = -1;
+	while (++i < size)
+		hex[i] = '0';
+	i = -1;
+	while (addr != 0)
+	{
+		hex[++i] = base[addr % 16];
+		addr /= 16;
+	}
+	while (size > 0)
+		write(1, &hex[--size], 1);
+}
