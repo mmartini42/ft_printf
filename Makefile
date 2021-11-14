@@ -6,7 +6,7 @@
 #    By: mathmart <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/13 08:52:08 by mathmart          #+#    #+#              #
-#    Updated: 2021/11/14 17:12:19 by mathmart         ###   ########.fr        #
+#    Updated: 2021/11/14 21:23:55 by mathmart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,9 @@ $(NAME): gmk $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 all: gmk $(NAME)
+
+test: $(OBJS)
+	gcc $(OBJS) -o test
 
 clean:
 	rm -rf $(OBJS)
