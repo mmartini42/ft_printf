@@ -6,20 +6,20 @@
 /*   By: mathmart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 20:08:34 by mathmart          #+#    #+#             */
-/*   Updated: 2021/11/14 20:21:33 by mathmart         ###   ########.fr       */
+/*   Updated: 2021/11/14 20:28:27 by mathmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-static void	ft_print_hexa(char *base, long nbr)
+static void	ft_print_hexa(char *base, unsigned int nbr)
 {
 	if (nbr >= ft_strlen(base))
 		ft_print_hexa(base, (nbr / ft_strlen(base)));
 	ft_putchar(base[nbr % ft_strlen(base)]);
 }
 
-void	ft_putnbr_base(long nbr, char *base)
+void	ft_putnbr_base(unsigned int nbr, char *base)
 {
 	if (nbr < 0)
 	{
