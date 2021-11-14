@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunbr.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mathmart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/14 20:48:12 by mathmart          #+#    #+#             */
-/*   Updated: 2021/11/14 21:10:47 by mathmart         ###   ########.fr       */
+/*   Created: 2021/11/14 21:09:25 by mathmart          #+#    #+#             */
+/*   Updated: 2021/11/14 21:10:26 by mathmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/ft_printf.h"
+#include "../Includes/ft_printf.h"
 
-void	ft_putunbr(unsigned int nb)
+void	ft_putstr(const char *str)
 {
-	if (nb >= 10)
-		ft_putnbr(nb / 10);
-	ft_putchar(nb % 10 + 48);
+	size_t	i;
+
+	if (!str)
+		return ;
+	i = 0;
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
 }
