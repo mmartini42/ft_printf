@@ -6,7 +6,7 @@
 /*   By: mathmart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 08:59:47 by mathmart          #+#    #+#             */
-/*   Updated: 2021/11/14 21:34:04 by mathmart         ###   ########.fr       */
+/*   Updated: 2021/11/14 21:52:10 by mathmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ static void	ft_init(void (*ft_print[10])(va_list))
 	ft_print[1] = ft_print_s;
 	ft_print[2] = ft_print_p;
 	ft_print[3] = ft_print_d;
-	ft_print[5] = ft_print_i;
-	ft_print[6] = ft_print_u;
-	ft_print[7] = ft_print_x;
-	ft_print[8] = ft_print_majx;
-	ft_print[9] = ft_print_percent;
+	ft_print[4] = ft_print_i;
+	ft_print[5] = ft_print_u;
+	ft_print[6] = ft_print_x;
+	ft_print[7] = ft_print_majx;
+	ft_print[8] = ft_print_percent;
 }
 
 static short	ft_get(char c, va_list ap, void (*ft_print[10])(va_list))
@@ -67,4 +67,12 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(ap);
 	return (i);
+}
+
+int main(int ac, char **av)
+{
+	(void)ac;
+	(void)av;
+
+	ft_printf("-*.*" );
 }

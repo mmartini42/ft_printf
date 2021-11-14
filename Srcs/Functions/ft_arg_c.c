@@ -6,7 +6,7 @@
 /*   By: mathmart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 19:40:48 by mathmart          #+#    #+#             */
-/*   Updated: 2021/11/14 21:19:03 by mathmart         ###   ########.fr       */
+/*   Updated: 2021/11/14 21:48:43 by mathmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_print_c(va_list ap)
 	int	c;
 
 	c = 0;
-	c += va_arg(ap, int);
+	c = va_arg(ap, int);
 	if (c >= 0 && c <= 255)
 		write(1, &c, 1);
 }
