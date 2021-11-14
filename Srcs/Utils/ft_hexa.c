@@ -6,7 +6,7 @@
 /*   By: mathmart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 20:08:34 by mathmart          #+#    #+#             */
-/*   Updated: 2021/11/14 20:20:46 by mathmart         ###   ########.fr       */
+/*   Updated: 2021/11/14 20:21:33 by mathmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_putnbr_base(long nbr, char *base)
 {
 	if (nbr < 0)
 	{
-		dest[0] = '-';
+		ft_putchar('-');
 		nbr *= -1;
 	}
 	ft_print_hexa(base,nbr);
