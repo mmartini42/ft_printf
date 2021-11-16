@@ -6,18 +6,18 @@
 /*   By: mathmart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 19:40:48 by mathmart          #+#    #+#             */
-/*   Updated: 2021/11/14 21:48:43 by mathmart         ###   ########.fr       */
+/*   Updated: 2021/11/16 01:18:17 by mathmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-void	ft_print_c(va_list ap)
+int	ft_print_c(va_list ap)
 {
 	int	c;
 
 	c = 0;
-	c = va_arg(ap, int);
-	if (c >= 0 && c <= 255)
-		write(1, &c, 1);
+	c += va_arg(ap, int);
+	write(1, &c, 1);
+	return (1);
 }

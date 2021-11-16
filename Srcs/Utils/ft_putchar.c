@@ -6,13 +6,14 @@
 /*   By: mathmart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 16:05:09 by mathmart          #+#    #+#             */
-/*   Updated: 2021/11/14 19:45:45 by mathmart         ###   ########.fr       */
+/*   Updated: 2021/11/15 21:04:42 by mathmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-void	ft_putchar(char c)
+int	ft_putchar(char c)
 {
 	write(1, &c, 1);
+	return (1);
 }

@@ -6,17 +6,20 @@
 /*   By: mathmart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 19:47:53 by mathmart          #+#    #+#             */
-/*   Updated: 2021/11/14 21:17:53 by mathmart         ###   ########.fr       */
+/*   Updated: 2021/11/15 23:18:15 by mathmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-void	ft_print_u(va_list ap)
+int	ft_print_u(va_list ap)
 {
 	unsigned int	nb;
+	unsigned int	count;
 
+	count = 0;
 	nb = 0;
 	nb += va_arg(ap, unsigned int);
-	ft_putunbr(nb);
+	ft_putunbr(nb, &count);
+	return (count);
 }

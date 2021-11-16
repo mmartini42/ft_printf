@@ -6,14 +6,15 @@
 /*   By: mathmart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 19:30:41 by mathmart          #+#    #+#             */
-/*   Updated: 2021/11/14 21:21:24 by mathmart         ###   ########.fr       */
+/*   Updated: 2021/11/15 23:15:19 by mathmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-void	ft_print_percent(va_list ap)
+int	ft_print_percent(va_list ap)
 {
 	(void)ap;
 	write(1, "%", 1);
+	return (1);
 }

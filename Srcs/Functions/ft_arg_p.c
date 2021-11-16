@@ -6,17 +6,28 @@
 /*   By: mathmart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 19:47:47 by mathmart          #+#    #+#             */
-/*   Updated: 2021/11/14 21:18:11 by mathmart         ###   ########.fr       */
+/*   Updated: 2021/11/16 01:06:30 by mathmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-void	ft_print_p(va_list ap)
+static void	ft_putnbr_ull_hexa(uintptr_t nbr, char *base, int *len)
 {
-	unsigned long long	addr;
+	if (nbr >= ft_strlen(base))
+		ft_putnbr_ull_hexa((nbr / ft_strlen(base)), base, len);
+	*len += ft_putchar(base[nbr % ft_strlen(base)]);
+}
 
+int	ft_print_p(va_list ap)
+{
+	uintptr_t	addr;
+	int			len;
+
+	len = 0;
 	addr = 0;
-	addr += va_arg(ap, unsigned long long);
-	ft_p_hexa(addr, 16);
+	addr += va_arg(ap, uintptr_t);
+	len += ft_putstr("0x");
+	ft_putnbr_ull_hexa(addr, MIN_HEXA, &len);
+	return (len);
 }

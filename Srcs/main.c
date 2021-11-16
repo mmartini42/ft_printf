@@ -6,13 +6,13 @@
 /*   By: mathmart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 08:59:47 by mathmart          #+#    #+#             */
-/*   Updated: 2021/11/14 21:52:10 by mathmart         ###   ########.fr       */
+/*   Updated: 2021/11/16 01:21:53 by mathmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/ft_printf.h"
 
-static void	ft_init(void (*ft_print[10])(va_list))
+static void	ft_init(int (*ft_print[10])(va_list))
 {
 	ft_print[0] = ft_print_c;
 	ft_print[1] = ft_print_s;
@@ -25,7 +25,7 @@ static void	ft_init(void (*ft_print[10])(va_list))
 	ft_print[8] = ft_print_percent;
 }
 
-static short	ft_get(char c, va_list ap, void (*ft_print[10])(va_list))
+static int	ft_get(char c, va_list ap, int (*ft_print[10])(va_list), int *nb)
 {
 	size_t	i;
 	char	*base;
@@ -36,7 +36,7 @@ static short	ft_get(char c, va_list ap, void (*ft_print[10])(va_list))
 	{
 		if (base[i] == c)
 		{
-			ft_print[i](ap);
+			*nb += ft_print[i](ap);
 			return (1);
 		}
 		i++;
@@ -48,31 +48,25 @@ int	ft_printf(const char *str, ...)
 {
 	va_list	ap;
 	size_t	i;
-	void	(*ft_print[10])(va_list);
+	int		(*ft_print[10])(va_list);
+	int		nb;
 
 	i = 0;
+	nb = 0;
 	va_start(ap, str);
 	ft_init(ft_print);
 	while (str[i])
 	{
 		if (str[i] && str[i] == '%')
 		{
-			if (!ft_get(str[i + 1], ap, ft_print))
+			if (!ft_get(str[i + 1], ap, ft_print, &nb) && i + 1)
 				return (-1);
 			i++;
 		}
 		else
-			ft_putchar(str[i]);
+			nb += ft_putchar(str[i]);
 		i++;
 	}
 	va_end(ap);
-	return (i);
-}
-
-int main(int ac, char **av)
-{
-	(void)ac;
-	(void)av;
-
-	ft_printf("-*.*" );
+	return (nb);
 }
