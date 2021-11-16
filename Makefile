@@ -6,7 +6,7 @@
 #    By: mathmart <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/13 08:52:08 by mathmart          #+#    #+#              #
-#    Updated: 2021/11/16 01:26:25 by mathmart         ###   ########.fr        #
+#    Updated: 2021/11/16 02:00:56 by mathmart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,13 +30,13 @@ CFLAGS = -Wall -Wextra -Werror -O3 -g -I Includes
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-all: gmk $(NAME)
+all: $(NAME)
 
 clean:
 	rm -rf $(OBJS)
 
 fclean: clean
-	rm -rf $(NAME) test
+	rm -rf $(NAME)
 
 re: fclean all
 
