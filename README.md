@@ -1,4 +1,4 @@
-<h1 align="center">📋 Libft 📃</h1>
+<h1 align="center">📋 ft_printf 📃</h1>
 
 <p align="center">
   <a href="https://fr.wikipedia.org/wiki/MacOS_Mojave" target="_blank">
